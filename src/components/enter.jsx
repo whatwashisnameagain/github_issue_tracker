@@ -7,21 +7,43 @@ class Enter extends Component {
     }
 
     handleChange = e => {
-        console.log(e);
-    }
+        const { name, value } = e.target;
+
+        this.setState({
+            [name]: value
+        })
+    };
 
     render() { 
 
-        { name, email } = this.state;
+        const { name , email } = this.state;
 
         return (
             <div>
-                <input
-                    type='text'
-                    name='name'
-                    value={ name }
-                    onChange={ e => handleChange(e)}
-                />
+                <h1>Hello { name }</h1>
+                <p>{ email }</p>
+                <form>
+                    <label>
+                        Name
+                        <input
+                            type='text'
+                            name='name'
+                            placeholder="what is your name"
+                            value={ name }
+                            onChange={ e => this.handleChange(e)}
+                        />
+                    </label>
+                    <label>
+                        Name
+                        <input
+                            type='email'
+                            name='email'
+                            placeholder="what is your email"
+                            value={ email }
+                            onChange={ e => this.handleChange(e)}
+                        />
+                    </label>
+                </form>
             </div>
         );
     }
