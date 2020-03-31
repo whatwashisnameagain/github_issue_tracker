@@ -5,7 +5,7 @@ import { loadData } from '../utils/loadData';
 import Styled from 'styled-components';
 
 const IssueWrapper = Styled.div`
-    width: 80%;
+    max-width: 900px;
     margin: 25px;
 `
 

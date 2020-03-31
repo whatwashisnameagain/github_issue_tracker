@@ -39,7 +39,7 @@ body {
   .morph, .morph-active{
     border-radius: 10px;
     padding: 25px;
-    overflow: auto;
+    overflow: scroll;
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2), -4px -4px 10px #fff;
     transition: all 0.3s;
   } .morph-active:hover {
