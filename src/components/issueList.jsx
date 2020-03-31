@@ -4,14 +4,8 @@ import Issue from './Issue';
 import { loadData } from "../utils/loadData";
 import Styled from 'styled-components';
 
-const List = Styled.ul`
-    list-style: none;
-`
-
 const IssueItem = Styled.li`
-    background: #eee;
-    box-shadow: 2px 2px 5px #ccc;
-    margin: 15px;
+    margin: 20px;
     padding: 25px;
 `
 
@@ -34,17 +28,18 @@ class IssueList extends Component {
         const { issues } = this.state;
 
         return (
-            <List>
+            <ul>
                 {issues.map(issue => (
-                    <IssueItem key={issue.id}>
-                        {issue.title}
-                        <br />
-                        <Link to={`/issue/${issue.number}`}>
-                            See Details
-                        </Link>
-                    </IssueItem>
+                    <Link to={`/issue/${issue.number}`}>
+                        <IssueItem 
+                            key={issue.id}
+                            className="morph-active"
+                        >
+                            {issue.title}
+                        </IssueItem>
+                    </Link>
                 ))}
-            </List>
+            </ul>
         )
     }
 }
