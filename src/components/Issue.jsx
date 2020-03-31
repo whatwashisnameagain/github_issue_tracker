@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { Title } from 'bloomer';
 import Styled from 'styled-components';
+import { loadData } from '../utils/loadData';
 
-const IssueItem = Styled.li`
-    background: #ddd;
-    margin: 10px;
-    padding: 10px;
+const Details = Styled.div`
+    width: 100%;
 `
 
-const Issue = props => {
-    const { data } = props;
+class Issue extends Component {
+    state = {
+        issue: []
+    }
 
-    return (
-        <IssueItem key={ data.id }>
-            <h2>{ data.title }</h2>
-            <p>
-                <a href={data.url}>{data.url}</a>
-            </p>
-            <p>{ data.body }</p>
-        </IssueItem>
-    )
+    async componentDidMount() {
+        const { issue_number } = this.props.match.params;
+        const url = `https://api.github.com/repos/facebook/create-react-app/issues/${issue_number}`
+        const issue = await loadData(url);
+
+        this.setState({
+            issue
+        })
+    }
+
+    render() { 
+        const { issue } = this.state;
+        return (
+            <Details>
+                <Title
+                    isSize={2}
+                    tag="h1"
+                >
+                    {issue.title}
+                </Title>
+                <ReactMarkdown
+                    source={issue.body}
+                    escapeHtml={false}
+                />
+            </Details>
+        )
+    }
 }
 
 export default Issue;

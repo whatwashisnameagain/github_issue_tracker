@@ -1,13 +1,24 @@
 import React from 'react';
+import Issue from './components/Issue';
 import IssueList from './components/IssueList';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
-        <Route exact path="/" component={IssueList}/>
+        <Link to="/">Home</Link> 
+        <Route 
+          exact 
+          path="/" 
+          component={IssueList}
+        />
+        
+        <Route 
+          path="/issue/:issue_number?" 
+          component={Issue}
+        />
+      
       </Router>
     </div>
   )
