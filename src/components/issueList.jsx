@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Issue from './Issue';
 import Styled from 'styled-components';
 import { loadData } from "../utils/loadData";
 

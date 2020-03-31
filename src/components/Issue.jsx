@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Title } from 'bloomer';
 import { loadData } from '../utils/loadData';
 import Styled from 'styled-components';
 

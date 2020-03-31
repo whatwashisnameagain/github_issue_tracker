@@ -1,6 +1,6 @@
 import React from 'react';
 import Issue from './components/Issue';
-import IssueList from './components/IssueList';
+import IssueList from './components/issueList';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 
