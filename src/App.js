@@ -1,12 +1,10 @@
 import React from 'react';
-import IssueList from './components/issueList';
-import Enter from './components/enter';
+import IssueList from './components/IssueList';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Enter />
       <IssueList />
     </div>
   )

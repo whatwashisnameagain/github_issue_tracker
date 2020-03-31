@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import Issue from './Issue';
 import { loadData } from "../utils/loadData";
+import Styled from 'styled-components';
+
+const List = Styled.ul`
+    list-style: none;
+`
 
 class IssueList extends Component {
     state = {
@@ -20,18 +26,11 @@ class IssueList extends Component {
         const { issues } = this.state;
 
         return (
-            <ul>
-                { issues.map( (issue, index) => (
-                    <li key={ issue.id }>
-                        <h2>{ issue.title }</h2>
-                        <p>
-                            <a href={issue.url}>{issue.url}</a>
-                        </p>
-                        <p>{ issue.body }</p>
-                        <hr/>
-                    </li>
+            <List>
+            { issues.map(issue => (
+                    <Issue data={issue}/>
                 ))}
-            </ul>
+            </List>
         )
     }
 }
