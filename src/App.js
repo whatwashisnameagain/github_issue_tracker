@@ -9,7 +9,7 @@ function App() {
     <div className="flex-center">
       <Router>
         <Link to="/">
-          <p className="btn morph-active">Home</p>
+          <p className="home">Home</p>
         </Link> 
         <Route 
           exact 
