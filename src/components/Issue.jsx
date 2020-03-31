@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Title } from 'bloomer';
-import Styled from 'styled-components';
 import { loadData } from '../utils/loadData';
+import Styled from 'styled-components';
 
-const Details = Styled.div`
-    width: 100%;
+const IssueWrapper = Styled.div`
+    width: 80%;
+    margin: 25px;
 `
 
 class Issue extends Component {
@@ -25,19 +26,17 @@ class Issue extends Component {
 
     render() { 
         const { issue } = this.state;
+
         return (
-            <Details>
-                <Title
-                    isSize={2}
-                    tag="h1"
-                >
-                    {issue.title}
-                </Title>
-                <ReactMarkdown
-                    source={issue.body}
-                    escapeHtml={false}
-                />
-            </Details>
+            <IssueWrapper>
+                <h1 className="title">{issue.title}</h1>
+                <div className="morph">
+                    <ReactMarkdown
+                        source={issue.body}
+                        escapeHtml={false}
+                    />
+                </div>
+            </IssueWrapper>
         )
     }
 }

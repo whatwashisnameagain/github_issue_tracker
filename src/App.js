@@ -6,9 +6,11 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="flex-center">
       <Router>
-        <Link to="/">Home</Link> 
+        <Link to="/">
+          <p className="btn morph-active">Home</p>
+        </Link> 
         <Route 
           exact 
           path="/" 

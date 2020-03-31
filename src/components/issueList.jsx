@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Issue from './Issue';
-import { loadData } from "../utils/loadData";
 import Styled from 'styled-components';
+import { loadData } from "../utils/loadData";
 
 const IssueItem = Styled.li`
-    margin: 20px;
-    padding: 25px;
+    margin: 25px;
+    font-size: 1.2em;
+    text-align:center;
+    font-weight: 575;
+    font-family: 'Rubik', sans-serif;
+    padding: 15px;
 `
 
 class IssueList extends Component {
@@ -28,18 +32,21 @@ class IssueList extends Component {
         const { issues } = this.state;
 
         return (
-            <ul>
-                {issues.map(issue => (
-                    <Link to={`/issue/${issue.number}`}>
-                        <IssueItem 
-                            key={issue.id}
-                            className="morph-active"
-                        >
-                            {issue.title}
-                        </IssueItem>
-                    </Link>
-                ))}
-            </ul>
+            <div className="flex-center">
+                <h1 className="title">All Issues</h1>
+                <ul>
+                    {issues.map(issue => (
+                        <Link to={`/issue/${issue.number}`}>
+                            <IssueItem 
+                                key={issue.id}
+                                className="morph-active"
+                            >
+                                {issue.title}
+                            </IssueItem>
+                        </Link>
+                    ))}
+                </ul>
+            </div>
         )
     }
 }
