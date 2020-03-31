@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import Issue from './Issue';
 import { loadData } from "../utils/loadData";
-import Styled from 'styled-components';
-
-const List = Styled.ul`
-    list-style: none;
-`
 
 class IssueList extends Component {
     state = {
@@ -26,11 +21,11 @@ class IssueList extends Component {
         const { issues } = this.state;
 
         return (
-            <List>
+            <ul>
             { issues.map(issue => (
                     <Issue data={issue}/>
                 ))}
-            </List>
+            </ul>
         )
     }
 }

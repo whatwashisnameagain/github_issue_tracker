@@ -8,16 +8,15 @@ const IssueItem = Styled.li`
 `
 
 const Issue = props => {
-
-    const issue = props.data;
+    const { data } = props;
 
     return (
-        <IssueItem key={ issue.id }>
-            <h2>{ issue.title }</h2>
+        <IssueItem key={ data.id }>
+            <h2>{ data.title }</h2>
             <p>
-                <a href={issue.url}>{issue.url}</a>
+                <a href={data.url}>{data.url}</a>
             </p>
-            <p>{ issue.body }</p>
+            <p>{ data.body }</p>
         </IssueItem>
     )
 }
